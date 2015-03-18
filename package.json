@@ -1,0 +1,39 @@
+{
+  "name": "node-template-benchmarks",
+  "version": "0.0.0",
+  "description": "Just a few benchmarks for running node-based templating engines under various loads.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "grunt watch:tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github:jbatte47/node-template-benchmarks"
+  },
+  "keywords": [
+    "node",
+    "benchmark",
+    "template",
+    "engine",
+    "test"
+  ],
+  "author": "John Batte",
+  "license": "BSD 2-Clause",
+  "devDependencies": {
+    "babel": "^4.7.13",
+    "chai": "^2.1.2",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-test": "^0.12.7",
+    "jshint-stylish": "^1.0.1",
+    "load-grunt-tasks": "^3.1.0",
+    "mocha": "^2.2.1",
+    "sinon": "^1.14.1"
+  },
+  "dependencies": {
+    "benchmark": "^1.0.0",
+    "debug": "^2.1.3",
+    "lodash": "^3.5.0"
+  }
+}
