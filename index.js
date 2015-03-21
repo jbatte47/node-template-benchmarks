@@ -50,7 +50,7 @@ function BenchmarkResults(runs, onComplete) {
   this.add = function (target, size) {
     var engineResults = this.results[target.name] = this.results[target.name] || {
       name: target.name,
-      type: "spline",
+      type: "column",
       showInLegend: true,
       dataPoints: _.map(this.runs, function (run) {
         return { label: run };

@@ -17,14 +17,16 @@
           success: function (data) {
             var chart = new CanvasJS.Chart("chartContainer",
             {
-              title:{
-                text: "Node Templates: Average Operations Per Second"
-              },
-              theme: "theme1",
               axisY :{
                 includeZero: false
               },
-              data: data
+              data: data,
+              panEnabled: true,
+              theme: "theme1",
+              title:{
+                text: "Node Templates: Average Operations Per Second"
+              },
+              zoomEnabled: true
             });
 
             chart.render();
