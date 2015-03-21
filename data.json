@@ -1,7 +1,7 @@
 [
   {
     "name": "mustache",
-    "type": "spline",
+    "type": "column",
     "showInLegend": true,
     "dataPoints": [
       {
@@ -28,7 +28,7 @@
   },
   {
     "name": "handlebars",
-    "type": "spline",
+    "type": "column",
     "showInLegend": true,
     "dataPoints": [
       {
@@ -55,7 +55,7 @@
   },
   {
     "name": "dust",
-    "type": "spline",
+    "type": "column",
     "showInLegend": true,
     "dataPoints": [
       {
@@ -82,7 +82,7 @@
   },
   {
     "name": "hogan",
-    "type": "spline",
+    "type": "column",
     "showInLegend": true,
     "dataPoints": [
       {
@@ -109,7 +109,7 @@
   },
   {
     "name": "lodash",
-    "type": "spline",
+    "type": "column",
     "showInLegend": true,
     "dataPoints": [
       {
@@ -136,7 +136,7 @@
   },
   {
     "name": "doT",
-    "type": "spline",
+    "type": "column",
     "showInLegend": true,
     "dataPoints": [
       {
@@ -163,7 +163,7 @@
   },
   {
     "name": "nodeCsv",
-    "type": "spline",
+    "type": "column",
     "showInLegend": true,
     "dataPoints": [
       {
