@@ -1,0 +1,191 @@
+[
+  {
+    "name": "mustache",
+    "type": "spline",
+    "showInLegend": true,
+    "dataPoints": [
+      {
+        "label": "XS",
+        "y": 215120.38835886342
+      },
+      {
+        "label": "SM",
+        "y": 30545.21061894052
+      },
+      {
+        "label": "MD",
+        "y": 3161.635595100827
+      },
+      {
+        "label": "LG",
+        "y": 315.0831343345466
+      },
+      {
+        "label": "XL",
+        "y": 30.25230311615562
+      }
+    ]
+  },
+  {
+    "name": "handlebars",
+    "type": "spline",
+    "showInLegend": true,
+    "dataPoints": [
+      {
+        "label": "XS",
+        "y": 107344.40045912824
+      },
+      {
+        "label": "SM",
+        "y": 49926.57615285087
+      },
+      {
+        "label": "MD",
+        "y": 7584.183538175156
+      },
+      {
+        "label": "LG",
+        "y": 866.6909723381584
+      },
+      {
+        "label": "XL",
+        "y": 114.61894126890161
+      }
+    ]
+  },
+  {
+    "name": "dust",
+    "type": "spline",
+    "showInLegend": true,
+    "dataPoints": [
+      {
+        "label": "XS",
+        "y": 315926.4380828465
+      },
+      {
+        "label": "SM",
+        "y": 82211.1495140301
+      },
+      {
+        "label": "MD",
+        "y": 8980.043742986225
+      },
+      {
+        "label": "LG",
+        "y": 948.7452366279244
+      },
+      {
+        "label": "XL",
+        "y": 111.19309801820752
+      }
+    ]
+  },
+  {
+    "name": "hogan",
+    "type": "spline",
+    "showInLegend": true,
+    "dataPoints": [
+      {
+        "label": "XS",
+        "y": 599533.6625226113
+      },
+      {
+        "label": "SM",
+        "y": 157371.6273356344
+      },
+      {
+        "label": "MD",
+        "y": 19181.827927723116
+      },
+      {
+        "label": "LG",
+        "y": 1949.9566270483367
+      },
+      {
+        "label": "XL",
+        "y": 203.91497088243815
+      }
+    ]
+  },
+  {
+    "name": "lodash",
+    "type": "spline",
+    "showInLegend": true,
+    "dataPoints": [
+      {
+        "label": "XS",
+        "y": 270230.3823854497
+      },
+      {
+        "label": "SM",
+        "y": 82115.76187726228
+      },
+      {
+        "label": "MD",
+        "y": 8715.242108956943
+      },
+      {
+        "label": "LG",
+        "y": 976.8604172940319
+      },
+      {
+        "label": "XL",
+        "y": 95.5513837661902
+      }
+    ]
+  },
+  {
+    "name": "doT",
+    "type": "spline",
+    "showInLegend": true,
+    "dataPoints": [
+      {
+        "label": "XS",
+        "y": 1735283.97076421
+      },
+      {
+        "label": "SM",
+        "y": 417022.22620506986
+      },
+      {
+        "label": "MD",
+        "y": 66379.44761513034
+      },
+      {
+        "label": "LG",
+        "y": 4333.875822546083
+      },
+      {
+        "label": "XL",
+        "y": 383.92962390905336
+      }
+    ]
+  },
+  {
+    "name": "nodeCsv",
+    "type": "spline",
+    "showInLegend": true,
+    "dataPoints": [
+      {
+        "label": "XS",
+        "y": 95435.91815327464
+      },
+      {
+        "label": "SM",
+        "y": 51399.96106460159
+      },
+      {
+        "label": "MD",
+        "y": 10394.875177590982
+      },
+      {
+        "label": "LG",
+        "y": 1258.4378251386975
+      },
+      {
+        "label": "XL",
+        "y": 122.37332111227417
+      }
+    ]
+  }
+]
