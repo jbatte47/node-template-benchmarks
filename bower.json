@@ -1,0 +1,23 @@
+{
+  "name": "node-template-benchmarks",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "John Batte <jbatte@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "BSD 2-Clause",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "canvasjs": "http://canvasjs.com/wp-content/uploads/misc/temp/canvasjs-1.6.1.zip"
+  }
+}

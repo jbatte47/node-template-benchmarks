@@ -1,0 +1,2 @@
+firstName,lastName,age,handsome{{~ it.records :value}}
+{{=value.firstName}},{{=value.lastName}},{{=value.age}},{{=value.handsome}}{{~}}

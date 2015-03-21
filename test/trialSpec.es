@@ -5,53 +5,93 @@ var sinon = require("sinon");
 
 var src = require("../src");
 
+let engine = "mocha";
+let label = "test";
+let mochaEngine = { render: function (data,cb) { cb(); } };
+let mock = sinon.mock(mochaEngine);
+
 describe("Trial", () => {
+  let target = null;
+  let options = null;
 
-  let engine = "mocha";
-  let label = "test";
-  let mochaEngine = { render: function (data) {} };
-  let mock = sinon.mock(mochaEngine);
-
-  let target = new src.Trial({
-    data: {
-      records: [{}] // single record; content doesn't matter here
-    },
-    engines: {
-      mocha: function () {
-        return mochaEngine;
-      }
-    },
-    label: label
+  beforeEach(() => {
+    options = {
+      data: {
+        records: [{}] // single record; content doesn't matter here
+      },
+      engines: {
+        mocha: mochaEngine
+      },
+      label: label
+    };
+    target = new src.Trial(options);
   });
 
-  describe("#name", () => {
+  afterEach(() => target = null);
 
-    it("should incorporate the chosen engine and a label", () => {
+  it("should have a function named #method", () => expect(src.Trial).to.respondTo("method"));
 
-      let expected = src.consts.trialPrefix + "#" + engine + "(" + label + ")";
-      let actual = target.name(engine);
-      expect(actual).to.equal(expected); // plain and simple
+  describe("#constructor", () => {
+    it("should return an instance of Trial", () => expect(new src.Trial()).to.be.instanceof(src.Trial));
 
+    it("should set the options property specified by the options argument", () => {
+      const expectedOptions = options;
+
+      expect(new src.Trial(options).options).to.eql(expectedOptions);
     });
   });
 
   describe("#method", () => {
+    let result = null;
+    let factory = null;
+    let trial = null;
+    let oneRecord = null;
 
-    it("should return a callable function with no named parameters", () => {
+    before(() => oneRecord = src.util.load("oneRecord.csv"));
 
-      let result = target.method(engine);
-      expect(result).to.be.ok; // truthy means we got a result
-      expect(result).to.be.a("function"); // and it's a function like we'd hoped
-      expect(result.length).to.equal(0); // with the right number of args (zero)
-
+    beforeEach(() => {
+      result = target.method(engine);
+      factory = new src.TrialFactory();
+      trial = factory.extraSmall();
     });
 
-    it("should return a function that correctly utilizes the chosen engine", () => {
+    it("should return a function", () => expect(result).to.be.a("function"));
 
-      mock.expects("render").once().returns(""); // should be asked to render once
-      target.method(engine)(); // just run; no need for return values
-      mock.verify(); // verify assumptions
+    describe("returned function", () => {
+      it("should have one named parameter", () => expect(result).to.have.length(1)); // optional deferred object
+      it("should correctly utilize the chosen engine", () => {
+        mock.expects("render").once().yields("");
+        result(); // just run; no need for return values
+        mock.verify(); // assert the above was true ("render" called exactly once on the correct engine)
+      });
+    });
 
+    describe("with mustache as the engine", () => {
+      it("should conduct successfully", () => trial.method("mustache")());
+    });
+
+    describe("with handlebars as the engine", () => {
+      it("should conduct successfully", () => trial.method("handlebars")());
+    });
+
+    describe("with dust as the engine", () => {
+      it("should conduct successfully", () => trial.method("dust")());
+    });
+
+    describe("with hogan as the engine", () => {
+      it("should conduct successfully", () => trial.method("hogan")());
+    });
+
+    describe("with lodash as the engine", () => {
+      it("should conduct successfully", () => trial.method("lodash")());
+    });
+
+    describe("with doT as the engine", () => {
+      it("should conduct successfully", () => trial.method("doT")());
+    });
+
+    describe("with node-csv as the engine", () => {
+      it("should conduct successfully", () => trial.method("nodeCsv")());
     });
 
   });

@@ -13,6 +13,14 @@ module.exports = function (grunt) {
   loadTasks(grunt);
 
   grunt.initConfig({
+    "bower": {
+      install: {
+        options: {
+          targetDir: "./out/lib"
+        }
+      }
+    },
+
     "jscs": {
       options: {
         config: ".jscsrc"

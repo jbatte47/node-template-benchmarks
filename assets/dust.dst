@@ -1,0 +1,4 @@
+firstName,lastName,age,handsome{~n}
+{#records}
+{firstName},{lastName},{age},{handsome}{~n}
+{/records}

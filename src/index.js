@@ -2,5 +2,7 @@
 
 module.exports = {
   consts: require("./constants"),
-  Trial: require("./trial")
+  Trial: require("./trial"),
+  TrialFactory: require("./trialFactory"),
+  util: require("./util")
 };

@@ -1,0 +1,4 @@
+firstName,lastName,age,handsome
+{{#records}}
+{{firstName}},{{lastName}},{{age}},{{handsome}}
+{{/records}}

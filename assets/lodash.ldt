@@ -1,0 +1,2 @@
+firstName,lastName,age,handsome<% _.each(records, function (record) { %>
+<%- record.firstName %>,<%- record.lastName %>,<%- record.age %>,<%- record.handsome %><% }); %>
