@@ -47,7 +47,7 @@ function BenchmarkResults(runs, onComplete) {
   this.runCount = runs.length;
   this.onComplete = onComplete;
 
-  this.add = function (target, size) {
+  this.add = function (session, target, size) {
     var engineResults = this.results[target.name] = this.results[target.name] || {
       name: target.name,
       type: "column",
@@ -61,7 +61,7 @@ function BenchmarkResults(runs, onComplete) {
       return item.label === size;
     })
 
-    point["y"] = target.hz;
+    point["y"] = target.hz * session.trial.options.data.records.length;
   };
 
   this.runComplete = function () {
@@ -98,7 +98,7 @@ _.forIn(trials, function (session, size) {
     .addTrial(session, "nodeCsv", size)
     .on("cycle", function (event) {
       debug(event.target.name + " (" + size + ")", "Operations per second: " + event.target.hz);
-      results.add(event.target, size)
+      results.add(session, event.target, size)
     })
     .on("complete", function () {
       var winner = this.filter("fastest");

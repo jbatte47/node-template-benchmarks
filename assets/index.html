@@ -5,18 +5,39 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div id="chartContainer">
+    <div class="content">
+      <div class="chartContainer">
+      </div>
+      <div class="notes">
+        <p>
+          Please note that performance is measured in operations per second,
+          and then scaled to account for the number of rows rendered per operation.
+          This helps to measure how performance changes with each engine when
+          rendering large datasets versus small ones.
+          The trial t-shirt sizes are as follows:
+        </p>
+        <ol>
+          <li>XS - Extra Small (1 row)</li>
+          <li>SM - Small (10 rows)</li>
+          <li>MD - Medium (100 rows)</li>
+          <li>LG - Large (1,000 rows)</li>
+          <li>XL - Extra Large (10,000 rows)</li>
+        </ol>
+        <p>
+          Please refer to <a href="https://github.com/jbatte47/node-template-benchmarks">the project</a> for more information.
+        </p>
+      </div>
     </div>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/canvasjs/canvasjs.min.js"></script>
+    <script type="text/javascript" src="lib/canvasjs/jquery.canvasjs.min.js"></script>
     <script type="text/javascript">
       $(function () {
         $.ajax({
           url: "data.json",
           dataType: "json",
           success: function (data) {
-            var chart = new CanvasJS.Chart("chartContainer",
-            {
+            $(".chartContainer").CanvasJSChart({
+              animationEnabled: true,
               axisY :{
                 includeZero: false
               },
@@ -24,12 +45,10 @@
               panEnabled: true,
               theme: "theme1",
               title:{
-                text: "Node Templates: Average Operations Per Second"
+                text: "Node Templates: Average Rows Per Second"
               },
               zoomEnabled: true
             });
-
-            chart.render();
           }
         });
       });
