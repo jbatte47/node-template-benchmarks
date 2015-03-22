@@ -9,6 +9,6 @@ module.exports = {
     return "Creating Trial: " + method + " (" + label + ")";
   },
   trialConducted: function(results) {
-    return "(" + results.length + "): " + results;
+    return "Trial conducted. Operation successful; " + results.length + " characters rendered";
   }
 };
