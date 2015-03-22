@@ -14,6 +14,7 @@ cd benchmarks
 #### Fetch all node dependencies:
 
 ```bash
+npm install -g bower
 npm install
 ```
 
@@ -34,16 +35,16 @@ npm install -g grunt-cli
 #### Run Mocha to ensure the engines being benchmarked behave as expected:
 
 ```bash
+npm test
+```
+
+Which is an alias for:
+
+```bash
 grunt test
 ```
 
 #### Enter dev/test mode (watch for changes and auto-run Mocha):
-
-```bash
-npm test
-```
-
-This is equivalent to running:
 
 ```bash
 grunt watch:tests
@@ -58,12 +59,18 @@ grunt watch:tests
     - `benchmark:RecordFactory`
     - `benchmark:Trial`
     - `benchmark:TrialFactory`
+- The benchmark code itself is simply `benchmark`
+- Can combine with commas: `DEBUG=benchmark,benchmark:RecordFactory`
 - Uses wildcards: `DEBUG=benchmark:*`
 - Examples:
+    - `DEBUG=benchmark npm start`
     - `DEBUG=benchmark:* npm test`
-    - `DEBUG=benchmark:Trial npm start`
+    - `DEBUG=benchmark:TrialFactory npm start`
 
-**Note**: in Windows, the commands look like `SET DEBUG=benchmark:* & npm test`
+**Notes**:
+
+- In Windows, the commands look like `SET DEBUG=benchmark & npm test`
+- Using wildcards (`benchmark:*`) will cause a LOT of extra output
 
 Resources:
 - [Implementation Details][wiki]
