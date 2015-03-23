@@ -41,33 +41,43 @@ Benchmark.Suite.prototype.addTrial = function addTrial(session, name, size) {
   return this.add(name, session.trial.method(name));
 };
 
-function BenchmarkResults(runs, onComplete) {
+function BenchmarkResults(runNames, onComplete) {
   this.results = {};
-  this.runs = runs;
-  this.runCount = runs.length;
+  this.runNames = runNames;
+  this.runCount = runNames.length;
   this.onComplete = onComplete;
 
   this.add = function (session, target, size) {
     var engineResults = this.results[target.name] = this.results[target.name] || {
       name: target.name,
-      type: "column",
-      showInLegend: true,
-      dataPoints: _.map(this.runs, function (run) {
-        return { label: run };
+      dataPoints: _.map(this.runNames, function (run) {
+        return { size: run };
       })
     };
 
     var point = _.find(engineResults.dataPoints, function (item) {
-      return item.label === size;
+      return item.size === size;
     })
 
-    point["y"] = target.hz * session.trial.options.data.records.length;
+    point["rate"] = target.hz * session.trial.options.data.records.length;
   };
 
   this.runComplete = function () {
     this.runCount -= 1;
     if (this.runCount === 0) {
-      var data = _.values(this.results);
+      var data = {
+        series: _.map(this.results, function (result, name) {
+          return {
+            name: name,
+            data: _.map(result.dataPoints, function (entry) {
+              return entry.rate;
+            })
+          };
+        }),
+        xAxis: {
+          categories: this.runNames
+        }
+      };
       debug("Benchmark complete", util.inspect(data, {depth:null,colors:true}));
       this.onComplete(data);
     }
